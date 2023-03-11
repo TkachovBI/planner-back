@@ -40,11 +40,20 @@ export class UserController {
     return res.json(result);
   }
 
+  @Put('/login')
+  @ApiBody({ type: User })
+  @ApiOperation({ summary: 'Create user' })
+  @ApiResponse({ status: 201, description: 'Create user.' })
+  async login(@Body() user: User, @Response() res) {
+    const result = await this.userService.login(user);
+    return res.json(result);
+  }
+
   @Post()
   @ApiBody({ type: User })
   @ApiOperation({ summary: 'Create user' })
   @ApiResponse({ status: 201, description: 'Create user.' })
-  async create(@Response() req, @Body() user: User, @Response() res) {
+  async create(@Body() user: User, @Response() res) {
     const result = await this.userService.create(user);
     console.log(result);
     return res.json(result);

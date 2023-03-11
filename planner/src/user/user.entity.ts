@@ -13,4 +13,8 @@ export class User {
   @Column()
   @ApiProperty()
   password: string;
+
+  @Column()
+  @ApiProperty()
+  status: string;
 }

@@ -12,5 +12,9 @@ export class Social {
 
   @Column()
   @ApiProperty()
-  socialType: string;
+  name: string;
+
+  @Column()
+  @ApiProperty()
+  status: string;
 }

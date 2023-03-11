@@ -55,6 +55,8 @@ export class SocialController {
   @ApiOperation({ summary: 'Create social' })
   async create(@Body() social: Social, @Response() res) {
     const result = await this.socialService.create(social);
+    console.log(result);
+
     return res.json(result);
   }
 
